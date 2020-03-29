@@ -1,4 +1,5 @@
 require 'json'
+require_relative './customer'
 
 class Importer
   def initialize(file_path)
@@ -11,7 +12,7 @@ class Importer
       customers = []
 
       file.each_line do |line|
-        customers << JSON.parse(line, symbolize_names: true)
+        customers << Customer.new(JSON.parse(line, symbolize_names: true))
       end
 
       customers

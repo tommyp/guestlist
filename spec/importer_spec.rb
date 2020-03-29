@@ -22,17 +22,21 @@ describe Importer do
   context "with a file path" do
     let(:file_path) { "./data/customers.txt" }
 
-    let(:first_imported_customer) {
-      {
+    let(:expected_first_imported_customer) {
+      Customer.new({
         user_id: 12,
         name: "Christina McArdle",
         latitude: "52.986375",
         longitude: "-6.043701",
-      }
+      })
     }
 
     it "imports a customer" do
-      expect(subject.call.first).to eq(first_imported_customer)
+      first_imported_customer = subject.call.first
+      expect(first_imported_customer.user_id).to eq(expected_first_imported_customer.user_id)
+      expect(first_imported_customer.name).to    eq(expected_first_imported_customer.name)
+      expect(first_imported_customer.lat).to     eq(expected_first_imported_customer.lat)
+      expect(first_imported_customer.lng).to     eq(expected_first_imported_customer.lng)
     end
   end
 end
