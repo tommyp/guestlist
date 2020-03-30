@@ -20,22 +20,28 @@ describe Location do
     end
   end
 
-  describe "#kilometres_to_dublin_office" do
-    context 'from London to Dublin' do
+  describe "#within_kilometres_of_dublin_office?" do
+    context 'when the location is London and distance is 100km' do
       let(:lat) { 51.5055481 }
       let(:lng) { -0.1329171 }
+      # London is 462km away from Dublin
 
-      it "calculates the distance" do
-        expect(subject.kilometres_to_dublin_office).to eq(462)
+      let(:distance) { 100 }
+
+      it "returns false" do
+        expect(subject.within_kilometres_of_dublin_office?(distance)).to eq(false)
       end
     end
 
-    context 'from Belfast to Dublin' do
+    context 'when the location is Belfast and distance is 150km' do
       let(:lat) { 54.5965421 }
       let(:lng) { -5.9523907 }
+      # Belfast is 141km away from Dublin
 
-      it "calculates the distance" do
-        expect(subject.kilometres_to_dublin_office).to eq(141)
+      let(:distance) { 150 }
+
+      it "returns true" do
+        expect(subject.within_kilometres_of_dublin_office?(distance)).to eq(true)
       end
     end
   end

@@ -13,8 +13,8 @@ class Location
     @lng = lng
   end
 
-  def kilometres_to_dublin_office
-    (metres_to_dublin_office / 1000).round
+  def within_kilometres_of_dublin_office?(distance)
+    kilometres_to_dublin_office <= distance
   end
 
   private
@@ -25,5 +25,9 @@ class Location
     cos_formula = Math.cos(lat * RADIANS_PER_DEGREE) * Math.cos(DUBLIN_OFFICE_LATITUDE * RADIANS_PER_DEGREE) * cos_delta
 
     Math.acos(sin_formula + cos_formula) * RADIUS_IN_METRES
+  end
+
+  def kilometres_to_dublin_office
+    (metres_to_dublin_office / 1000).round
   end
 end
