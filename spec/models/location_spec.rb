@@ -1,5 +1,5 @@
 require 'spec_helper'
-require_relative "../../app/models/location"
+require_relative "../../lib/models/location"
 
 describe Location do
   subject { described_class.new(lat: lat, lng: lng) }

@@ -1,6 +1,6 @@
 require 'tempfile'
-require_relative "../../app/services/guestlist"
-require_relative "../../app/services/importer"
+require_relative "../../lib/services/guestlist"
+require_relative "../../lib/services/importer"
 
 describe Guestlist do
   subject {

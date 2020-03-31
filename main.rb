@@ -1,4 +1,4 @@
-require_relative './app/services/guestlist'
+require_relative './lib/services/guestlist'
 
 path = ARGV[0]&.to_s
 distance = ARGV[1]&.sub('km', '')&.to_i

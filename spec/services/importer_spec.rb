@@ -1,4 +1,4 @@
-require_relative "../../app/services/importer"
+require_relative "../../lib/services/importer"
 
 describe Importer do
   subject { described_class.new(file_path) }

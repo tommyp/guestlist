@@ -1,6 +1,6 @@
 require "spec_helper"
-require_relative "../../app/models/customer"
-require_relative "../../app/models/location"
+require_relative "../../lib/models/customer"
+require_relative "../../lib/models/location"
 
 describe Customer do
   subject { described_class.new(customer_params) }
