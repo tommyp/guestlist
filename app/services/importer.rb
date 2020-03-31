@@ -1,5 +1,5 @@
 require 'json'
-require_relative './customer'
+require_relative '../models/customer'
 
 class Importer
   def initialize(file_path)
