@@ -1,14 +1,14 @@
 require_relative './lib/services/guestlist'
+require_relative './lib/services/input_validator'
 
-path = ARGV[0]&.to_s
-distance = ARGV[1]&.sub('km', '')&.to_i
+inputs = InputValidator.new(
+  path: ARGV[0],
+  distance: ARGV[1],
+).validate
 
-raise ArgumentError, "You must supply a file path to a list of customers as the first argument" if path.nil? || path == ""
-raise ArgumentError, "You must supply a kilometre distance greater than 0" if distance.nil? || distance <= 0
-
-puts "Customers to invite within #{distance}km:"
+puts "Customers to invite within #{inputs.distance}km:"
 puts "user_id | name"
 puts Guestlist.new(
-  customer_data_file_path: path,
-  distance: distance,
+  customer_data_file_path: inputs.path,
+  distance: inputs.distance,
 ).print

@@ -2,7 +2,7 @@
 
 This app will generate an invite list of all customers within a radius of the Dublin HQ office.
 
-To look through the code, all of the interesting bits are in `Guestlist`, `Importer` and `Location`. The distance calculation happens in `Location`.
+To look through the code, the interesting bits are in `Guestlist`, `Importer` and `Location`. Input validation happens in `InputValidator`. The distance calculation happens in `Location`. The entry point for the app is `main.rb`.
 
 The example output can be found in `output.txt`.
 
